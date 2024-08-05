@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO PELOTA - Predio Deportivo</title>
+    <link rel="shortcut icon" href="./imagenes/favicon.JPG  " type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <figure>
+                    <img src="./imagenes/logo .JPG" alt="Logo">
+                </figure>
+            </div>
+            <div>
+                <ul>    
+                    <li>
+                        <a class="nav-link active" href="#datos">Hacer Reservación</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" href="">Mis Reservaciones</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    
+    <section>
+        <h1 id="datos"> Ingresa tus datos para reservar</h1>
+        <form action="">
+            <div class="container">
+                <label for="nombre">Ingrese su nombre y apellido:</label>
+                <input type="text" id="nombre" name="nombre" class="casilla" placeholder="Nombre y Apellido" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="casilla" placeholder="Ingrese su email" required >
+                <br>
+                <label for="fecha">Selecciona una fecha:</label>
+                <input type="date" id="fecha" class="casilla" name="fecha" required>
+            </div>
+            <div class="container">
+                <label for="select">
+                    Elija el horario:
+                </label>
+                <select name="select" class="casilla" id="horario">
+                    <option selected> De 16 a 17 Hs.</option>
+                    <option>De 17 a 18 Hs.</option>
+                    <option>De 18 a 19 Hs.</option>
+                    <option>De 19 a 20 Hs.</option>
+                    <option>De 20 a 21 Hs.</option>
+                    <option>De 21 a 22 Hs.</option>
+                </select>
+                <br>
+                <label for="select">
+                    Predio
+                </label>
+                <select name="select" class="casilla" id="predio">
+                    <option selected>Av. Colón 4308</option>
+                    <option>Sol de Mayo 527</option>
+                    <option>Av. Leandro N. Alem 3582</option>
+                </select>
+                <label for="select">
+                    Deporte
+                </label>
+                <select name="select" class="casilla" id="deporte">
+                    <option selected>Futbol 11</option>
+                    <option>Futbol 5</option>
+                    <option>Padle</option>
+                </select>
+                <input type="submit" value="Enviar" id="boton">
+            </div>
+        </form>
+    </section>
+
+
+    
+    <section>
+        <h2> Mis reservaciones</h2>
+        <div id="contenedorReservas">
+            <template id="reservaTemplate">
+                <div class="reserva">
+                    <p class="reservaNombre">Nombre:</p>
+                    <p class="reservaEmail">Email</p>
+                    <p class="reservaFecha">Fecha</p>
+                    <p class="reservaHorario">Horario</p>
+                    <p class="reservaPredio">Predio</p>
+                    <p class="reservaDeporte">Deporte</p>
+                </div>
+            </template>
+        </div>
+        <button id="borrarReservas">Borrar Todas las Reservas</button>
+        <div class="misReservas">
+            
+        </div>
+    </section>
+    
+    
+    <!-- <script src="./js/app.js"></script> -->
+    <script src="./js/borrar.js"></script> 
+
+</body>
+
+</html>
