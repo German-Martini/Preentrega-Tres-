@@ -7,6 +7,8 @@
     <title>TODO PELOTA - Predio Deportivo</title>
     <link rel="shortcut icon" href="./imagenes/favicon.JPG  " type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
@@ -79,30 +81,34 @@
     </section>
 
 
-    
-    <section>
-        <h2> Mis reservaciones</h2>
-        <div>
-            <template id="reservaTemplate">
-                <div class="reserva">
-                    <p class="reservaNombre">Nombre:</p>
-                    <p class="reservaEmail">Email</p>
-                    <p class="reservaFecha">Fecha</p>
-                    <p class="reservaHorario">Horario</p>
-                    <p class="reservaPredio">Predio</p>
-                    <p class="reservaDeporte">Deporte</p>
-                </div>
-            </template>
+    <template id="reservaTemplate">
+        <div id="reserva" >
+            <div>
+                <p class="reservaNombre">NOMBRE: </p>
+                <p class="reservaEmail">EMAIL: </p>
+                <p class="reservaFecha">FECHA: </p>
+                <p class="reservaHorario">HORARIO: </p>
+                <p class="reservaPredio">PREDIO: </p>
+                <p class="reservaDeporte">DEPORTE: </p>
+                <button class="eliminar">
+                    Eliminar reservacion
+                </button>
+            </div>
+            
         </div>
-        <!-- <button id="borrarReservas">Borrar Todas las Reservas</button> -->
-        <div id="contenedorReservas"></div>
-        </div>
-        <button id="borrarReservas">Borrar Todas las Reservas</button>
         
-        <div id="contenedorReservas"></div>
+      
+    </template>
+    
+    <section class="seccionReservas">
+        <h2> Mis reservaciones</h2>
+        <div class="contenedorReservas" id="contenedorReservas"></div>
     </section>
     
     
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
     <script src="./js/app.js"></script>
 
 </body>

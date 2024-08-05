@@ -41,21 +41,20 @@ imputBoton.addEventListener('click', (evento) => {
             
         let copia = document.querySelector("#reservaTemplate").content.cloneNode(true);
         
-        copia.querySelector(".reservaNombre").textContent = reserva.nombre
-        copia.querySelector(".reservaEmail").textContent = reserva.email
-        copia.querySelector(".reservaFecha").textContent = reserva.fecha
-        copia.querySelector(".reservaHorario").textContent = reserva.horario
-        copia.querySelector(".reservaPredio").textContent = reserva.predio
-        copia.querySelector(".reservaDeporte").textContent = reserva.deporte
+        copia.querySelector(".reservaNombre").textContent += reserva.nombre
+        copia.querySelector(".reservaEmail").textContent += reserva.email
+        copia.querySelector(".reservaFecha").textContent += reserva.fecha
+        copia.querySelector(".reservaHorario").textContent += reserva.horario
+        copia.querySelector(".reservaPredio").textContent += reserva.predio
+        copia.querySelector(".reservaDeporte").textContent += reserva.deporte
     
         contenedorReservas.append(copia);
 
-        // const botonBorrar = document.querySelector("#borrarReservas");
-        // botonBorrar.addEventListener('click', () => {
-        //     misReservas.length = 0;
-        //     contenedorReservas.innerHTML = "";
-        //     console.log("Todas las reservas han sido borradas");
-        // });
+        const btnEliminar = document.querySelector(".eliminar");
+
+        btnEliminar.addEventListener('click', () => {
+            contenedorReservas.remove();
+        });
         
         
     })
