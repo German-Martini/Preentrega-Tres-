@@ -1,4 +1,3 @@
-
 class Reservas {
     constructor(nombre, email, fecha, horario, predio, deporte) {
         this.nombre = nombre;
@@ -10,14 +9,16 @@ class Reservas {
     }
 }
 
-let misReservas = JSON.parse(localStorage.getItem('reservas')) || [
-    new Reservas()
-];
+const misReservas = []
 
-let inputBoton = document.querySelector("#boton");
+let contenedorReservas = document.querySelector("#contenedorReservas");
 
-inputBoton.addEventListener('click', (evento) => {
-    evento.preventDefault();
+let imputBoton = document.querySelector("#boton");
+
+
+imputBoton.addEventListener('click', (evento) => {
+    
+    evento.preventDefault();             
 
     let inputNombre = document.querySelector("#nombre").value;
     let inputEmail = document.querySelector("#email").value;
@@ -26,8 +27,8 @@ inputBoton.addEventListener('click', (evento) => {
     let inputPredio = document.querySelector("#predio").value;
     let inputDeporte = document.querySelector("#deporte").value;
 
-    // PUSHEO LOS DATOS DENTRO DEL ARRAY
-    misReservas.push(new Reservas(
+
+     misReservas.push(new Reservas(
         inputNombre,
         inputEmail,
         inputFecha,
@@ -36,45 +37,28 @@ inputBoton.addEventListener('click', (evento) => {
         inputDeporte
     ));
 
-    localStorage.setItem('reservas', JSON.stringify(misReservas));
-
-    console.table(misReservas);
-    misReservas.forEach((reserva) => {
+    misReservas.forEach((reserva)=> {
+            
         let copia = document.querySelector("#reservaTemplate").content.cloneNode(true);
+        
+        copia.querySelector(".reservaNombre").textContent = reserva.nombre
+        copia.querySelector(".reservaEmail").textContent = reserva.email
+        copia.querySelector(".reservaFecha").textContent = reserva.fecha
+        copia.querySelector(".reservaHorario").textContent = reserva.horario
+        copia.querySelector(".reservaPredio").textContent = reserva.predio
+        copia.querySelector(".reservaDeporte").textContent = reserva.deporte
+    
+        contenedorReservas.append(copia);
 
-        copia.querySelector(".reservaNombre").textContent = reserva.nombre;
-        copia.querySelector(".reservaEmail").textContent = reserva.email;
-        copia.querySelector(".reservaFecha").textContent = reserva.fecha;
-        copia.querySelector(".reservaHorario").textContent = reserva.horario;
-        copia.querySelector(".reservaPredio").textContent = reserva.predio;
-        copia.querySelector(".reservaDeporte").textContent = reserva.deporte;
-
-        contenedorReservas.appendChild(copia);
+        // const botonBorrar = document.querySelector("#borrarReservas");
+        // botonBorrar.addEventListener('click', () => {
+        //     misReservas.length = 0;
+        //     contenedorReservas.innerHTML = "";
+        //     console.log("Todas las reservas han sido borradas");
+        // });
+        
+        
     })
 });
 
-let contenedorReservas = document.querySelector("#contenedorReservas");
 
-// function renderReservas() {
-//     // contenedorReservas.innerHTML = ""; // Limpiar el contenedor antes de renderizar
-
-//     ;
-// }
-
-// Render inicial
-// renderReservas();
-
-// let botonBorrar = document.querySelector("#borrarReservas");
-
-// botonBorrar.addEventListener('click', () => {
-//     // Vaciar el array de reservas
-//     misReservas = [];
-
-//     // Eliminar del localStorage
-//     localStorage.removeItem('reservas');
-
-//     // Volver a renderizar las reservas
-//     renderReservas();
-
-//     console.log("Todas las reservas han sido borradas");
-// });
