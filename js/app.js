@@ -64,16 +64,17 @@ imputBoton.addEventListener('click', (evento) => {
         
         btnConfirmar.addEventListener(`click`, ()=> {
             localStorage.setItem('reservas', JSON.stringify(misReservas));
+            seccion.classList.remove('plantilla');
             seccion.innerHTML = '';
         });
        
 
         btnEliminar.addEventListener('click', () => {
+            seccion.classList.remove('plantilla');
             seccion.innerHTML = '';
             localStorage.removeItem('reservas')
-            reserva.classList.remove('.reserva');
         });
-        
+
 
     })
 });
