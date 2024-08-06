@@ -9,7 +9,9 @@ class Reservas {
     }
 }
 
-const misReservas = []
+// let misReservas = JSON.parse(localStorage.getItem('reservas')) || [];
+
+let misReservas = []
 
 let contenedorReservas = document.querySelector("#contenedorReservas");
 
@@ -37,6 +39,11 @@ imputBoton.addEventListener('click', (evento) => {
         inputDeporte
     ));
 
+    contenedorReservas.innerHTML = "", 
+
+    
+
+
     misReservas.forEach((reserva)=> {
             
         let copia = document.querySelector("#reservaTemplate").content.cloneNode(true);
@@ -51,12 +58,19 @@ imputBoton.addEventListener('click', (evento) => {
         contenedorReservas.append(copia);
 
         const btnEliminar = document.querySelector(".eliminar");
+        const btnConfirmar = document.querySelector(".confirmar");
+
+        btnConfirmar.addEventListener(`click`, ()=> {
+            localStorage.setItem('reservas', JSON.stringify(misReservas));
+            contenedorReservas.innerHTML = '';
+        })
 
         btnEliminar.addEventListener('click', () => {
-            contenedorReservas.remove();
+            contenedorReservas.innerHTML = '';
         });
-        
-        
+
+                                                        
+
     })
 });
 
