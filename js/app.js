@@ -55,21 +55,25 @@ imputBoton.addEventListener('click', (evento) => {
         copia.querySelector(".reservaPredio").textContent += reserva.predio
         copia.querySelector(".reservaDeporte").textContent += reserva.deporte
     
+        
+        let btnEliminar = copia.querySelector(".eliminar");
+        let btnConfirmar = copia.querySelector(".confirmar");
+        let seccion = copia.querySelector("#reserva")
+
         contenedorReservas.append(copia);
-
-        const btnEliminar = document.querySelector(".eliminar");
-        const btnConfirmar = document.querySelector(".confirmar");
-
+        
         btnConfirmar.addEventListener(`click`, ()=> {
             localStorage.setItem('reservas', JSON.stringify(misReservas));
-            contenedorReservas.innerHTML = '';
-        })
+            seccion.innerHTML = '';
+        });
+       
 
         btnEliminar.addEventListener('click', () => {
-            contenedorReservas.innerHTML = '';
+            seccion.innerHTML = '';
+            localStorage.removeItem('reservas')
+            reserva.classList.remove('.reserva');
         });
-
-                                                        
+        
 
     })
 });

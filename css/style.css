@@ -112,7 +112,7 @@ h2 {
     padding-right: 100px;
 }
 
-#reserva {
+.reserva {
     display: flex;
     flex-direction: row;
     border: 3px solid rgb(52, 103, 16);
